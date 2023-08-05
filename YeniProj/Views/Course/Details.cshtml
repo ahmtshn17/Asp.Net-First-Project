@@ -1,0 +1,41 @@
+@model Course
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="card mb-3" id="@Model.Id" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="~/img/@Model.Image" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a>
+                </h5>
+              <p class="card-text">@Model.Description</p>
+                 <div>
+                        @if(Model.Tags != null)
+                        {
+                            @foreach (var tag in Model.Tags)
+                            {
+                                <span class="badge bg-primary">@tag</span>
+                            }
+                        }
+                       
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+</body>
+</html>
